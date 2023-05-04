@@ -33,7 +33,7 @@ namespace CourseWork.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public IActionResult Books(int Form, int Genus, int Content, int Style)
+        public IActionResult Books(int Form, int Genus, int Content, int Style, int page = 1)
         {
             var books = _context.Books.ToList();
             if (Form != 0 ) {
@@ -48,7 +48,15 @@ namespace CourseWork.Controllers
             if (Style != 0) {
                 books = books.Where(e => e.StyleId == Style).ToList();
             }
-            return View(books);
+
+            int pageSize = 10;
+            var count = books.Count();
+            var items = books.Skip((page - 1) * pageSize).Take(pageSize);
+
+            PageViewModel pageViewModel = new PageViewModel(count, page, pageSize);
+            BookListViewModel viewModel = new BookListViewModel(items, pageViewModel);
+
+            return View(viewModel);
         }
 
         [HttpGet]
