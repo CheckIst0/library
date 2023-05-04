@@ -1,0 +1,108 @@
+@{
+    @model IEnumerable<Book>
+
+}
+
+@{
+    ViewData["Title"] = "Книги";
+}
+
+<div class="container text-wrap" id="books">
+    <input class="m-3 form-control bs-primary-border-subtle form-control-lg w-75" type="text" name="search"
+        id="searchInput" placeholder="Мартин Иден...">
+    <form action="" method="get">
+        <div class="row g-2 m-3">
+            <div class="col-sm">
+                <select class="form-select" id="selectGrid" name="Form">
+                    <option></option>
+                    <option value="1">Поэзия</option>
+                    <option value="2">Проза</option>
+                </select>
+                <label for="selectGrid"></label>
+            </div>
+            <div class="col-sm">
+                <select class="form-select" id="selectGrid" name="Genus">
+                    <option></option>
+                    <option value="1">Эпос</option>
+                    <option value="2">Лирика</option>
+                    <option value="3">Драма</option>
+                </select>
+                <label for="selectGrid"></label>
+            </div>
+            <div class="col-sm">
+                <select class="form-select" id="selectGrid" name="Content">
+                    <option></option>
+                    <option value="1">Комедия</option>
+                    <option value="2">Трагедия</option>
+                    <option value="3">Драма</option>
+                </select>
+                <label for="selectGrid"></label>
+            </div>
+            <div class="col-sm">
+                <select class="form-select" id="selectGrid" name="Style">
+                    <option></option>
+                    <option value="1">Классицизм</option>
+                    <option value="2">Сентиментализм</option>
+                    <option value="3">Романтизм</option>
+                    <option value="4">Реализм</option>
+                    <option value="5">Модернизм</option>
+                </select>
+                <label for="selectGrid"></label>
+            </div>
+            <div class="form-floating col">
+                <button type="submit" class="btn btn-primary">Фильтр</button>
+            </div>
+        </div>
+    </form>
+    <hr />
+    @foreach (var item in Model)
+    {
+        <div class="card mb-3 w-auto shadow" style="background-color: rgb(242, 250, 250);">
+            <div class="row g-0">
+                <div class="col-md-1">
+                    <img src="~/images/@item.ImageSource" class="img-fluid rounded-start" alt="@item.Name" width="120"
+                        height="160">
+                </div>
+                <div class="col-md">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Name</h5>
+                        <h6 class="card-subtitle">@item.Author.Name</h6>
+                        <p class="card-text"><small class="text-body-secondary">
+                                <span class="d-inline-block">@item.Description</span></small></p>
+                        <a href="~/Home/Book/@item.Id" class="stretched-link card-link"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    <div class="text-center">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $("#searchInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#books .card").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+            });
+        });
+    });
+</script>

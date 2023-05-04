@@ -1,0 +1,48 @@
+@model CourseWork.Models.LoginViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = null;
+    ViewData["Title"] = "Вход";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CourseWork</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/CourseWork.styles.css" asp-append-version="true" />
+
+</head>
+
+<body>
+    <div class="container text-center">
+        <main class="form-signin w-25 m-auto">
+            <form method="post">
+                @Html.AntiForgeryToken()
+                <img src="~/images/logo.jpg" alt="logo" width="210" height="210">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com"
+                        asp-for="Email" />
+                    <label for="floatingInput" asp-for="Email">E-mail</label>
+                    <span asp-validation-for="Email" class="form-text" style="color: crimson;"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
+                        asp-for="Password" />
+                    <label for="floatingPassword" asp-for="Password">Пароль</label>
+                    <span asp-validation-for="Password" class="form-text" style="color: crimson;"></span>
+                </div>
+                <button type="submit" class="btn btn-primary">Войти</button>
+            </form>
+        </main>
+        <div class="mt-5 mb-3">
+            <a href="~/Home/Register" class="mt-5 mb-3">Зарегистрироваться</a>
+        </div>
+    </div>
+</body>
+
+</html>

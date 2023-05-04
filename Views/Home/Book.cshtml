@@ -1,0 +1,110 @@
+@{
+    @model BookViewModel
+
+}
+
+@{
+    ViewData["Title"] = "Книга";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <img src="~/images/@Model.Book.ImageSource" alt="@Model.Book.Name" class="rounded float-start" height="320"
+                width="240">
+        </div>
+        <div class="col-md-8 mb-3">
+            <h4>@Model.Book.Name</h4>
+            <h5>@Model.Book.Author.Name</h5>
+            <p>@Model.Book.Description</p>
+            @if (Model.Book.Quantity == 0) {
+                <p>Нет в наличии</p>
+            } else {
+                <p>Количество: @Model.Book.Quantity</p>
+            }
+            <p>Содержание: @Model.Book.Content.Name</p>
+            <p>Форма: @Model.Book.Form.Name</p>
+            <p>Род: @Model.Book.Genus.Name</p>
+            <p>Направление: @Model.Book.Style.Name</p>
+        </div>
+    </div>
+    <hr />
+    <div class="row container">
+        <div class="col">
+            <h4 style="text-align: center;">Другие книги автора:</h4>
+            @if (Model.Book.Author.Books.Count() == 1)
+            {
+                <p>В библиотеке нет других книг данного автора(((</p>
+            }
+            @foreach (var item in Model.Book.Author.Books)
+            {
+                if (item.Id != Model.Book.Id)
+                {
+                    <div class="card mb-3 w-auto shadow" style="background-color: rgb(242, 250, 250);">
+                        <div class="row g-0">
+                            <div class="col-md-1">
+                                <img src="~/images/@item.ImageSource" class="img-fluid rounded-start" alt="@item.Name"
+                                    width="120" height="160">
+                            </div>
+                            <div class="col-md">
+                                <div class="card-body text-start">
+                                    <h5 class="card-title">@item.Name</h5>
+                                    <h6 class="card-subtitle">@item.Author.Name</h6>
+                                    <p class="card-text text-break fs-6"><small class="text-body-secondary">
+                                            <span class="d-inline-block">@item.Description</span></small></p>
+                                    <a href="~/Home/Book/@item.Id" class="stretched-link card-link"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+    <div class="row container">
+        <h4 style="text-align: center;">Отзывы</h4>
+        @* <div class="card" aria-hidden="true">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+        <h5 class="card-title placeholder-glow">
+        <span class="placeholder col-6"></span>
+        </h5>
+        <p class="card-text placeholder-glow">
+        <span class="placeholder col-7"></span>
+        <span class="placeholder col-4"></span>
+        <span class="placeholder col-4"></span>
+        <span class="placeholder col-6"></span>
+        <span class="placeholder col-8"></span>
+        </p>
+        <a class="btn btn-primary disabled placeholder col-6"></a>
+        </div>
+        </div> *@
+        @foreach (var item in Model.Reviews)
+        {
+            <div class="container rounded border bg-light mb-3">
+                <h6>@item.User.Lastname @item.User.Name</h6>
+                <p>Оценка: @item.Rating</p>
+                <p>@item.Text</p>
+            </div>
+        }
+    </div>
+    <div class="container mx-auto text-center w-50">
+        <main>
+            <form method="post">
+                <div class="row g-2">
+                    <div class="my-3 col-md-2">
+                        <input type="number" class="form-control" id="floatingInputGrid" placeholder="100500"
+                            name="Rating" required min="1" max="5">
+                    </div>
+                    <div class="my-3 col-md-10">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" id="floatingInputGrid"
+                                placeholder="Оставьте свой отзыв..." name="Text" required>
+                            <button type="submit" class="btn btn-primary">Отправить</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </main>
+    </div>
+</div>

@@ -1,0 +1,102 @@
+@model RegisterViewModel
+
+@{
+    Layout = null;
+    ViewData["Title"] = "Регистрация";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CourseWork</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/CourseWork.styles.css" asp-append-version="true" />
+
+</head>
+
+<body>
+    <div class="container mx-auto text-center w-50">
+        <main class="form-signin">
+            <form method="post">
+                <img src="~/images/logo.jpg" alt="logo" width="210" height="210">
+                <div class="row g-2">
+                    <div class="form-floating mb-3 col-md">
+                        <input asp-for="Email" type="text" class="form-control" id="floatingInputGrid"
+                            placeholder="name@example.com" />
+                        <label asp-for="Email" for="floatingInputGrid">E-mail</label>
+                        <span asp-validation-for="Email" class="form-text" style="color: crimson;"></span>
+                    </div>
+                    <div class="form-floating mb-3 col-md">
+                        <input asp-for="Password" type="password" class="form-control" id="floatingPasswordGrid"
+                            placeholder="Password">
+                        <label asp-for="Password" for="floatingPasswordGrid">Пароль</label>
+                        <span asp-validation-for="Password" class="form-text" style="color: crimson;"></span>
+                    </div>
+                </div>
+                <div class="row g-2">
+                    <div class="form-floating mb-3 col-md">
+                        <input asp-for="Name" type="text" class="form-control" id="floatingInputGrid"
+                            placeholder="Name">
+                        <label asp-for="Name" for="floatingInputGrid">Имя</label>
+                        <span asp-validation-for="Name" class="form-text" style="color: crimson;"></span>
+                    </div>
+                    <div class="form-floating mb-3 col-md">
+                        <input asp-for="Lastname" type="text" class="form-control" id="floatingInputGrid"
+                            placeholder="Name">
+                        <label asp-for="Lastname" for="floatingInputGrid">Фамилия</label>
+                        <span asp-validation-for="Lastname" class="form-text" style="color: crimson;"></span>
+                    </div>
+                    <div class="form-floating mb-3 col-md">
+                        <input asp-for="Patronymic" type="text" class="form-control" id="floatingInputGrid"
+                            placeholder="Name">
+                        <label asp-for="Patronymic" for="floatingInputGrid">Отчество</label>
+                        <span asp-validation-for="Patronymic" class="form-text" style="color: crimson;"></span>
+                    </div>
+                </div>
+                <div class="row g-2">
+                    <div class="form-floating mb-3 col-md">
+                        <select asp-for="Gender" class="form-select" id="floatingSelectGrid" aria-label="Floating label select example">
+                            <option selected value="M">Мужской</option>
+                            <option value="F">Женский</option>
+                        </select>
+                        <label asp-for="Gender" for="floatingSelectGrid">Пол</label>
+                        <span asp-validation-for="Address" class="form-text" style="color: crimson;"></span>
+                    </div>
+                    <div class="form-floating mb-3 col-md">
+                        <input asp-for="Address" type="text" class="form-control" id="floatingInputGrid"
+                            placeholder="Name">
+                        <label asp-for="Address" for="floatingInputGrid">Адрес</label>
+                        <span asp-validation-for="Address" class="form-text" style="color: crimson;"></span>
+                    </div>
+                    <div class="form-floating mb-3 col-md">
+                        <input asp-for="Age" type="number" class="form-control" id="floatingInputGrid"
+                            placeholder="Name">
+                        <label asp-for="Age" for="floatingInputGrid">Возраст</label>
+                        <span asp-validation-for="Age" class="form-text" style="color: crimson;"></span>
+                    </div>
+                    <div class="form-floating mb-3 col-md">
+                        <input asp-for="Phone" type="tel" class="form-control" id="floatingInputGrid"
+                            placeholder="Name">
+                        <label asp-for="Phone" for="floatingInputGrid">Номер телефона</label>
+                        <span asp-validation-for="Phone" class="form-text" style="color: crimson;"></span>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Регистрация</button>
+            </form>
+
+            <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.1.min.js"></script>
+            <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.17.0/jquery.validate.min.js"></script>
+            <script
+                src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.10/jquery.validate.unobtrusive.min.js"></script>
+        </main>
+        <div class="mt-5 mb-3">
+            <a href="~/Home/Login">Войти</a>
+        </div>
+    </div>
+</body>
+
+</html>
