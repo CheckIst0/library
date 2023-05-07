@@ -16,6 +16,6 @@ namespace CourseWork.Models
         [Column(TypeName = "Date")]
         public DateTime EstimatedReturnDate { get; set; }
         [Column(TypeName = "Date")]
-        public DateTime FactReturnDate { get; set; }
+        public DateTime? FactReturnDate { get; set; }
     }
 }

@@ -1,0 +1,104 @@
+@{
+    @model AccountViewModel
+    ViewData["Title"] = "Профиль";
+}
+
+<div class="container">
+    <dl class="row">
+        <dt class="col-sm-3">Фамилия</dt>
+        <dd class="col-sm-9">@Model.User.Lastname</dd>
+
+        <dt class="col-sm-3">Имя</dt>
+        <dd class="col-sm-9">@Model.User.Name</dd>
+
+        <dt class="col-sm-3">Отчество</dt>
+        <dd class="col-sm-9">@Model.User.Patronymic</dd>
+
+        <dt class="col-sm-3">Пол</dt>
+        @if(@Model.User.Gender == 'M') {
+            <dd class="col-sm-9">Мужской</dd>
+        } else {
+            <dd class="col-sm-9">Женский</dd>
+        }
+        
+        <dt class="col-sm-3">Возраст</dt>
+        <dd class="col-sm-9">@Model.User.Age</dd>
+
+        <dt class="col-sm-3">Адрес</dt>
+        <dd class="col-sm-9">@Model.User.Address</dd>
+        
+        <dt class="col-3">Телефон</dt>
+        <dd class="col-9">@Model.User.Phone</dd>
+    </dl>
+</div>
+<hr/>
+
+<div class="container text-wrap" id="books">
+    <h4 class="text-center mb-3">Взятые книги</h4>
+    @foreach (var item in Model.IssueHistories)
+    {
+        <div class="card mb-3 w-auto shadow" style="background-color: rgb(242, 250, 250);">
+            <div class="row g-0">
+                <div class="col-md-1">
+                    <img src="~/images/@item.Book.ImageSource" class="img-fluid rounded-start" alt="@item.Book.Name" width="120"
+                        height="160">
+                </div>
+                <div class="col-md">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Book.Name</h5>
+                        <h6 class="card-subtitle">@item.Book.Author.Name</h6>
+                        <p class="card-text"><small class="text-body-secondary">
+                                <span class="d-inline-block">Дата выдачи: @item.IssueDate.ToString("d")</span><br>
+                                <span class="d-inline-block">Предполагаемая дата возвращения: @item.EstimatedReturnDate.ToString("d")</span><br>
+                                @if (@item.FactReturnDate != null) {
+                                    <span class="d-inline-block">Фактическая дата возвращения: @item.FactReturnDate.ToString().Substring(0, 10)</span>
+                                }
+                                </small></p>
+                        <a href="~/Home/Book/@item.Id" class="stretched-link card-link"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<div>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination pagination-lg justify-content-center">
+            @if (Model.PageViewModel.HasPreviousPage)
+            {
+                <li class="page-item">
+                    <a class="page-link" aria-label="Previous" asp-action="Account"
+                        asp-route-page="@(Model.PageViewModel.PageNumber - 1)">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li class="page-item disabled">
+                    <a class="page-link" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+            }
+            @if (Model.PageViewModel.HasNextPage)
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-action="Account" asp-route-page="@(Model.PageViewModel.PageNumber + 1)"
+                        aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li class="page-item disabled">
+                    <a class="page-link" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            }
+        </ul>
+    </nav>
+</div>

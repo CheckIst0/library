@@ -15,7 +15,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
 // Security configure
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options => {
-        options.LoginPath = "/Home/Login";
+        options.LoginPath = "/User/Login";
     });
 
 builder.Services.AddAuthorization(options =>
@@ -46,6 +46,6 @@ app.UseStaticFiles();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Books}/{id?}");
 
 app.Run();

@@ -1,0 +1,54 @@
+@{
+    @model EntriesViewModel
+ViewData["Title"] = "История активности";
+}
+
+    <div class="container text-center mb-3">
+        <h4 class="mb-3">История активности</h4>
+        <ul class="list-group">
+            @foreach (var item in Model.EntryHistories)
+            {
+                <li class="list-group-item">@item.EntryDate.ToString("F")</li>
+            }
+        </ul>
+    </div>
+<div>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            @if (Model.PageViewModel.HasPreviousPage)
+            {
+                <li class="page-item">
+                    <a class="page-link" aria-label="Previous" asp-action="Entries"
+                        asp-route-page="@(Model.PageViewModel.PageNumber - 1)">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li class="page-item disabled">
+                    <a class="page-link" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+            }
+            @if (Model.PageViewModel.HasNextPage)
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-action="Entries" asp-route-page="@(Model.PageViewModel.PageNumber + 1)"
+                        aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li class="page-item disabled">
+                    <a class="page-link" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            }
+        </ul>
+    </nav>
+</div>
