@@ -1,0 +1,72 @@
+﻿@model CourseWork.Models.Book
+
+@{
+    ViewData["Title"] = "Изменение";
+}
+
+<h1>Редактирование</h1>
+
+<h4>Книга</h4>
+<hr />
+<div class="container w-75 text-center">
+    @* class="col" *@
+    <div > 
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Название</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageSource" class="control-label">Путь к картинке</label>
+                <input asp-for="ImageSource" class="form-control" />
+                <span asp-validation-for="ImageSource" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AuthorId" class="control-label">Автор</label>
+                <select asp-for="AuthorId" class="form-control" asp-items="ViewBag.Author"></select>
+                <span asp-validation-for="AuthorId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label">Описание</label>
+                <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quantity" class="control-label">Количество</label>
+                <input min="0" max="1000" asp-for="Quantity" class="form-control" />
+                <span asp-validation-for="Quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FormId" class="control-label">Форма</label>
+                <select asp-for="FormId" class="form-control" asp-items="ViewBag.Form"></select>
+                <span asp-validation-for="FormId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GenusId" class="control-label">Род</label>
+                <select asp-for="GenusId" class="form-control" asp-items="ViewBag.Genus"></select>
+                <span asp-validation-for="GenusId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContentId" class="control-label">Содержание</label>
+                <select asp-for="ContentId" class="form-control" asp-items="ViewBag.Content"></select>
+                <span asp-validation-for="ContentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StyleId" class="control-label">Направление</label>
+                <select asp-for="StyleId" class="form-control" asp-items="ViewBag.Style"></select>
+                <span asp-validation-for="StyleId" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-3">
+                <input type="submit" value="Сохранить" class="btn btn-success me-2" />
+                <a class="btn btn-primary" asp-action="Index">Назад к списку</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

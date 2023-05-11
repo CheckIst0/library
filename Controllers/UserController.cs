@@ -45,6 +45,7 @@ namespace CourseWork.Controllers
 
             var claims = new List<Claim> {
                 new Claim(ClaimTypes.Email, dbUser.Email),
+                new Claim(ClaimsIdentity.DefaultRoleClaimType, dbUser.Role.Name),
                 new Claim("userId", dbUser.Id.ToString())
             };
             ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
@@ -98,7 +99,8 @@ namespace CourseWork.Controllers
                 _context.Users.Add(user);
                 var claims = new List<Claim> {
                     new Claim(ClaimTypes.Email, user.Email),
-                    new Claim("userId", user.Id.ToString())
+                    new Claim("userId", user.Id.ToString()),
+                    new Claim(ClaimsIdentity.DefaultRoleClaimType, user.Role.Name)
                 };
 
                 EntryHistory entry = new EntryHistory
@@ -126,7 +128,7 @@ namespace CourseWork.Controllers
 
         public IActionResult Account(int page = 1)
         {
-            User user = _context.Users.Where(u => u.Id == int.Parse(HttpContext.User.FindFirst("userId").Value)).First();
+            User user = _context.Users.Where(u => u.Id == int.Parse(User.FindFirstValue("userId"))).First();   
             var issues = _context.IssueHistories.Where(e => e.UserId == user.Id).ToList();
 
             int pageSize = 10;
@@ -142,7 +144,7 @@ namespace CourseWork.Controllers
         public IActionResult Entries(int page = 1)
         {
             User user = _context.Users.Where(u => u.Id == int.Parse(HttpContext.User.FindFirst("userId").Value)).First();
-            var entries = _context.EntryHistories.Where(e => e.Email == user.Email).ToList();
+            var entries = _context.EntryHistories.Where(e => e.Email == user.Email).OrderByDescending(e => e.EntryDate).ToList();
 
             int pageSize = 10;
             var count = entries.Count();
@@ -152,6 +154,10 @@ namespace CourseWork.Controllers
             EntriesViewModel viewModel = new EntriesViewModel(items, pageViewModel);
 
             return View(viewModel);
+        }
+
+        public IActionResult AccessDenied() {
+            return View();
         }
     }
 }

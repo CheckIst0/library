@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CourseWork.Models
 {
@@ -6,6 +7,7 @@ namespace CourseWork.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        [DataType(DataType.ImageUrl)]
         public string ImageSource { get; set; }
         public int AuthorId { get; set; }
         [ForeignKey("AuthorId")]

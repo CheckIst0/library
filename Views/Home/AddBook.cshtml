@@ -1,0 +1,92 @@
+@{
+    @model Book
+ViewData["Title"] = "Добавление книги";
+}
+
+<div class="container">
+    <form method="post">
+        <div class="row g-2 mb-3">
+            <div class="form-floating col">
+                <input asp-for="Name" type="text" class="form-control" id="floatingInput" placeholder="Идиот" name="Name">
+                <label asp-for="Name" for="floatingInput">Название</label>
+                <span asp-validation-for="Name" class="form-text" style="color: crimson;"></span>
+            </div>
+            <div class="form-floating col">
+                <input asp-for="Author.Name" type="text" class="form-control" id="floatingInput" placeholder="Идиот" name="Author.Name" list="authors">
+                <datalist id="authors">
+                    <option value="Пушкин"></option>
+                </datalist>
+                <label asp-for="Author.Name" for="floatingInput">Автор</label>
+                <span asp-validation-for="Author.Name" class="form-text" style="color: crimson;"></span>
+            </div>
+        </div>
+        <div class="row g-2 mb-3">
+            <div class="form-floating col">
+                <textarea asp-for="Description" style="height: 100px;" class="form-control" placeholder="Leave a comment here"
+                    id="floatingTextarea" name="Description"></textarea>
+                <label asp-for="Description" for="floatingTextarea">Описание</label>
+                <span asp-validation-for="Description" class="form-text" style="color: crimson;"></span>
+            </div>
+        </div>
+        <div class="row g-2 mb-3">
+            <div class="form-floating col">
+                <input asp-for="ImageSource" type="text" class="form-control" id="floatingInput" placeholder="Идиот" name="ImageSource">
+                <label asp-for="ImageSource" for="floatingTextarea">Путь к изображению</label>
+                <span asp-validation-for="ImageSource" class="form-text" style="color: crimson;"></span>
+            </div>
+            <div class="form-floating">
+                <input asp-for="Quantity" type="number" class="form-control" id="floatingInput" placeholder="Идиот" name="Quantity">
+                <label asp-for="Quantity" for="floatingInput">Количество</label>
+                <span asp-validation-for="Quantity" class="form-text" style="color: crimson;"></span>
+            </div>
+        </div>
+        <div class="row g-2 mb-3">
+            <div class="form-floating col">
+                <select asp-for="FormId" class="form-select" id="floatingSelectGrid" name="FormId">
+                    <option></option>
+                    <option value="1">Поэзия</option>
+                    <option value="2">Проза</option>
+                </select>
+                <label asp-for="FormId" for="floatingSelectGrid">Форма...</label>
+                <span asp-validation-for="FormId" class="form-text" style="color: crimson;"></span>
+            </div>
+            <div class="form-floating col">
+                <select asp-for="GenusId" class="form-select" id="floatingSelectGrid" name="GenusId">
+                    <option></option>
+                    <option value="1">Эпос</option>
+                    <option value="2">Лирика</option>
+                    <option value="3">Драма</option>
+                </select>
+                <label asp-for="GenusId" for="floatingSelectGrid">Род...</label>
+                <span asp-validation-for="GenusId" class="form-text" style="color: crimson;"></span>
+            </div>
+            <div class="form-floating col">
+                <select asp-for="ContentId" class="form-select" id="floatingSelectGrid" name="ContentId">
+                    <option></option>
+                    <option value="1">Комедия</option>
+                    <option value="2">Трагедия</option>
+                    <option value="3">Драма</option>
+                </select>
+                <label asp-for="ContentId" for="floatingSelectGrid">Содержание...</label>
+                <span asp-validation-for="ContentId" class="form-text" style="color: crimson;"></span>
+            </div>
+            <div class="form-floating col">
+                <select asp-for="StyleId" class="form-select" id="floatingSelectGrid" name="StyleId">
+                    <option></option>
+                    <option value="1">Классицизм</option>
+                    <option value="2">Сентиментализм</option>
+                    <option value="3">Романтизм</option>
+                    <option value="4">Реализм</option>
+                    <option value="5">Модернизм</option>
+                </select>
+                <label asp-for="StyleId" for="floatingSelectGrid">Направление...</label>
+                <span asp-validation-for="StyleId" class="form-text" style="color: crimson;"></span>
+            </div>
+        </div>
+        <div class="row g-2">
+            <div class="form-floating col">
+                <button type="submit" class="btn btn-success btn-lg">Добавить</button>
+            </div>
+        </div>
+    </form>
+</div>

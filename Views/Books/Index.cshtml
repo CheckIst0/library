@@ -1,0 +1,139 @@
+﻿@model BookListViewModel
+
+@{
+    ViewData["Title"] = "Книги";
+}
+@* text-wrap *@
+<div class="container text-break w-auto" id="books">
+    <form method="get">
+        <div class="row g-2">
+            <div class="col-auto">
+                <select class="form-select" id="selectGrid" name="Form">
+                    <option>Форма...</option>
+                    <option value="1">Поэзия</option>
+                    <option value="2">Проза</option>
+                </select>
+                <label for="selectGrid"></label>
+            </div>
+            <div class="col-auto">
+                <select class="form-select" id="selectGrid" name="Genus">
+                    <option>Род...</option>
+                    <option value="1">Эпос</option>
+                    <option value="2">Лирика</option>
+                    <option value="3">Драма</option>
+                </select>
+                <label for="selectGrid"></label>
+            </div>
+            <div class="col-auto">
+                <select class="form-select" id="selectGrid" name="Content">
+                    <option>Содержание...</option>
+                    <option value="1">Комедия</option>
+                    <option value="2">Трагедия</option>
+                    <option value="3">Драма</option>
+                </select>
+                <label for="selectGrid"></label>
+            </div>
+            <div class="col-auto">
+                <select class="form-select" id="selectGrid" name="Style">
+                    <option>Направление...</option>
+                    <option value="1">Классицизм</option>
+                    <option value="2">Сентиментализм</option>
+                    <option value="3">Романтизм</option>
+                    <option value="4">Реализм</option>
+                    <option value="5">Модернизм</option>
+                </select>
+                <label for="selectGrid"></label>
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary">Фильтр</button>
+            </div>
+        </div>
+    </form>
+    <div class="row g-2">
+        <div class="col-9">
+            <input class="mb-3 form-control bs-primary-border-subtle" type="text" name="search" id="searchInput"
+                placeholder="Мартин Иден...">
+        </div>
+        <div class="col-3">
+            @* <a class="btn btn-success" href="~/Home/AddBook/">Добавить книгу</a> *@
+            <a class="btn btn-success" asp-action="Create">Добавить книгу</a>
+        </div>
+    </div>
+    <hr />
+    @foreach (var item in Model.Books)
+    {
+        <div class="card mb-3 w-auto shadow" style="background-color: rgb(242, 250, 250);">
+            <div class="row g-0">
+                <div class="col-md-1">
+                    <img src="~/images/@item.ImageSource" class="img-fluid rounded-start" alt="@item.Name" width="120"
+                        height="160">
+                </div>
+                <div class="col-md mx-2">
+                    <div class="card-body-10">
+                        @* <h5 class="card-title">@item.Name</h5> *@
+                        <a class="h5 card-title" asp-action="Details" asp-route-id="@item.Id">@item.Name</a>
+                        <h6 class="card-subtitle">@item.Author.Name</h6>
+                        <p class="card-text"><small class="text-body-secondary">
+                                <span class="d-inline-block">@item.Description</span></small></p>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <a class="mt-4 btn btn-success" asp-controller="Books" asp-action="Edit" asp-route-id="@item.Id">Изменить</a>
+                    <br>
+                    <a class="mt-2 btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<div>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination pagination-lg justify-content-center">
+            @if (Model.PageViewModel.HasPreviousPage)
+            {
+                <li class="page-item">
+                    <a class="page-link" aria-label="Previous" asp-action="Books"
+                        asp-route-page="@(Model.PageViewModel.PageNumber - 1)">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li class="page-item disabled">
+                    <a class="page-link" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+            }
+            @if (Model.PageViewModel.HasNextPage)
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-action="Books" asp-route-page="@(Model.PageViewModel.PageNumber + 1)"
+                        aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li class="page-item disabled">
+                    <a class="page-link" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            }
+        </ul>
+    </nav>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $("#searchInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#books .card").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+            });
+        });
+    });
+</script>

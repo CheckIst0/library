@@ -35,6 +35,10 @@ namespace CourseWork
             modelBuilder.Entity<Review>()
                 .ToTable(t => t.HasCheckConstraint("Rating", "Rating > 0 AND Rating < 6")
                 .HasName("CK_Review_Rating"));
+
+            modelBuilder.Entity<Book>()
+                .ToTable(t => t.HasCheckConstraint("Quantity", "Quantity > 0")
+                .HasName("CK_Book_Quantity"));
         }
 
         public DbSet<Book> Books { get; set; }

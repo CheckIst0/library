@@ -1,46 +1,40 @@
 @{
     @model BookListViewModel
-
-}
-
-@{
     ViewData["Title"] = "Книги";
 }
 
-<div class="container text-wrap" id="books">
-    <input class="m-3 form-control bs-primary-border-subtle form-control-lg w-75" type="text" name="search"
-        id="searchInput" placeholder="Мартин Иден...">
-    <form action="" method="get">
-        <div class="row g-2 m-3">
-            <div class="col-sm">
+<div class="container text-wrap w-auto" id="books">
+    <form method="get">
+        <div class="row g-2">
+            <div class="col-auto">
                 <select class="form-select" id="selectGrid" name="Form">
-                    <option></option>
+                    <option>Форма...</option>
                     <option value="1">Поэзия</option>
                     <option value="2">Проза</option>
                 </select>
                 <label for="selectGrid"></label>
             </div>
-            <div class="col-sm">
+            <div class="col-auto">
                 <select class="form-select" id="selectGrid" name="Genus">
-                    <option></option>
+                    <option>Род...</option>
                     <option value="1">Эпос</option>
                     <option value="2">Лирика</option>
                     <option value="3">Драма</option>
                 </select>
                 <label for="selectGrid"></label>
             </div>
-            <div class="col-sm">
+            <div class="col-auto">
                 <select class="form-select" id="selectGrid" name="Content">
-                    <option></option>
+                    <option>Содержание...</option>
                     <option value="1">Комедия</option>
                     <option value="2">Трагедия</option>
                     <option value="3">Драма</option>
                 </select>
                 <label for="selectGrid"></label>
             </div>
-            <div class="col-sm">
+            <div class="col-auto">
                 <select class="form-select" id="selectGrid" name="Style">
-                    <option></option>
+                    <option>Направление...</option>
                     <option value="1">Классицизм</option>
                     <option value="2">Сентиментализм</option>
                     <option value="3">Романтизм</option>
@@ -49,11 +43,20 @@
                 </select>
                 <label for="selectGrid"></label>
             </div>
-            <div class="form-floating col">
+            <div class="col-auto">
                 <button type="submit" class="btn btn-primary">Фильтр</button>
             </div>
         </div>
     </form>
+    <div class="row g-2">
+        <div class="col-9">
+            <input class="mb-3 form-control bs-primary-border-subtle" type="text" name="search" id="searchInput"
+                placeholder="Мартин Иден...">
+        </div>
+        <div class="col-3">
+            <a class="btn btn-success" href="~/Home/AddBook/">Добавить книгу</a>
+        </div>
+    </div>
     <hr />
     @foreach (var item in Model.Books)
     {

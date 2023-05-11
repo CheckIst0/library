@@ -89,7 +89,11 @@ namespace CourseWork.Migrations
 
                     b.HasIndex("StyleId");
 
-                    b.ToTable("Books");
+                    b.ToTable("Books", t =>
+                        {
+                            t.HasCheckConstraint("Quantity", "Quantity > 0")
+                                .HasName("CK_Book_Quantity");
+                        });
                 });
 
             modelBuilder.Entity("CourseWork.Models.Content", b =>
