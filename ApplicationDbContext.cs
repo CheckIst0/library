@@ -39,7 +39,7 @@ namespace CourseWork
             modelBuilder.Entity<Book>()
                 .ToTable(t => t.HasCheckConstraint("Quantity", "Quantity > 0")
                 .HasName("CK_Book_Quantity"));
-        }
+            }
 
         public DbSet<Book> Books { get; set; }
         public DbSet<Author> Authors { get; set; }

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CourseWork.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230512075701_AddNewColAndTabs")]
+    [Migration("20230512082200_AddNewColAndTabs")]
     partial class AddNewColAndTabs
     {
         /// <inheritdoc />
@@ -218,33 +218,6 @@ namespace CourseWork.Migrations
                     b.ToTable("IssueHistories");
                 });
 
-            modelBuilder.Entity("CourseWork.Models.Quote", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("AuthorId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("BookId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Text")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AuthorId");
-
-                    b.HasIndex("BookId");
-
-                    b.ToTable("Quote");
-                });
-
             modelBuilder.Entity("CourseWork.Models.Review", b =>
                 {
                     b.Property<int>("Id")
@@ -443,25 +416,6 @@ namespace CourseWork.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("CourseWork.Models.Quote", b =>
-                {
-                    b.HasOne("CourseWork.Models.Author", "Author")
-                        .WithMany("Quotes")
-                        .HasForeignKey("AuthorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("CourseWork.Models.Book", "Book")
-                        .WithMany()
-                        .HasForeignKey("BookId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Author");
-
-                    b.Navigation("Book");
-                });
-
             modelBuilder.Entity("CourseWork.Models.Review", b =>
                 {
                     b.HasOne("CourseWork.Models.Book", "Book")
@@ -495,8 +449,6 @@ namespace CourseWork.Migrations
             modelBuilder.Entity("CourseWork.Models.Author", b =>
                 {
                     b.Navigation("Books");
-
-                    b.Navigation("Quotes");
                 });
 #pragma warning restore 612, 618
         }

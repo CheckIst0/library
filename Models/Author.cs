@@ -11,6 +11,5 @@ namespace CourseWork.Models
         public string Biography { get; set; }
         [Display(Name = "Книги автора")]
         public List<Book> Books { get; set; }
-        public List<Quote> Quotes { get; set; }
     }
 }
