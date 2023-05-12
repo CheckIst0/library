@@ -15,18 +15,25 @@
 <body style="background-color: rgb(218, 255, 249);">
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
+            <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Books" asp-action="Index">CourseWork</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="flex-shrink-0 dropdown" style="right: 120px;">
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a asp-controller="Books" asp-action="Index" class="nav-link px-2 link-body-emphasis">Книги</a></li>
+                    <li><a asp-controller="Authors" asp-action="Index" class="nav-link px-2 link-body-emphasis">Авторы</a></li>
+                    @if (User.IsInRole("Admin")) {
+                        <li><a asp-controller="IssueHistories" asp-action="Index" class="nav-link px-2 link-body-emphasis">История выдачи книг</a></li>
+                    }
+                </ul>
+                <div class="flex-shrink-0 dropdown">
                     <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown"
                         aria-expanded="false">
                         <img src="~/images/account.jpg" alt="acc" class="rounded-circle" width="32" height="28">
                     </a>
-                    <ul class="dropdown-menu text-small shadow" style="">
+                    <ul class="dropdown-menu text-small shadow" style="left: -100px">
                         <li><a class="dropdown-item link-primary" href="~/User/Entries">Журнал входов</a></li>
                         <li><a class="dropdown-item link-primary" href="~/User/Account">Профиль</a></li>
                         <li>

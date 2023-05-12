@@ -1,9 +1,16 @@
-﻿namespace CourseWork.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace CourseWork.Models
 {
     public class Author
     {
         public int Id { get; set; }
+        [Display(Name = "Имя автора")]
         public string Name { get; set; }
-        public List<Book> Books {get; set;}
+        [Display(Name = "Биография")]
+        public string Biography { get; set; }
+        [Display(Name = "Книги автора")]
+        public List<Book> Books { get; set; }
+        public List<Quote> Quotes { get; set; }
     }
 }

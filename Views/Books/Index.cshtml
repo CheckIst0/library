@@ -4,7 +4,7 @@
     ViewData["Title"] = "Книги";
 }
 @* text-wrap *@
-<div class="container text-break w-auto" id="books">
+<div class="text-break w-auto" id="books">
     <form method="get">
         <div class="row g-2">
             <div class="col-auto">
@@ -54,10 +54,13 @@
             <input class="mb-3 form-control bs-primary-border-subtle" type="text" name="search" id="searchInput"
                 placeholder="Мартин Иден...">
         </div>
-        <div class="col-3">
-            @* <a class="btn btn-success" href="~/Home/AddBook/">Добавить книгу</a> *@
-            <a class="btn btn-success" asp-action="Create">Добавить книгу</a>
-        </div>
+        @if (User.IsInRole("Admin"))
+        {
+            <div class="col-3">
+                @* <a class="btn btn-success" href="~/Home/AddBook/">Добавить книгу</a> *@
+                <a class="btn btn-success" asp-action="Create">Добавить книгу</a>
+            </div>
+        }
     </div>
     <hr />
     @foreach (var item in Model.Books)
@@ -77,11 +80,15 @@
                                 <span class="d-inline-block">@item.Description</span></small></p>
                     </div>
                 </div>
-                <div class="col-md-1">
-                    <a class="mt-4 btn btn-success" asp-controller="Books" asp-action="Edit" asp-route-id="@item.Id">Изменить</a>
-                    <br>
-                    <a class="mt-2 btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
-                </div>
+                @if (User.IsInRole("Admin"))
+                {
+                    <div class="col-md-1">
+                        <a class="mt-4 btn btn-success" asp-controller="Books" asp-action="Edit"
+                            asp-route-id="@item.Id">Изменить</a>
+                        <br>
+                        <a class="mt-2 btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+                    </div>
+                }
             </div>
         </div>
     }

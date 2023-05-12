@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CourseWork;
 using CourseWork.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CourseWork.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class IssueHistoriesController : Controller
     {
         private readonly ApplicationDbContext _context;
