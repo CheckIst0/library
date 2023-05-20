@@ -16,25 +16,21 @@ namespace CourseWork.Controllers
         }
 
         // GET: Books
-        public IActionResult Index(int Form, int Genus, int Content, int Style, int page = 1)
+        public IActionResult Index(int Form, int Genre, int Style, int page = 1)
         {
             var books = _context.Books.ToList();
             if (Form != 0)
             {
                 books = books.Where(e => e.FormId == Form).ToList();
             }
-            if (Genus != 0)
-            {
-                books = books.Where(e => e.GenusId == Genus).ToList();
-            }
-            if (Content != 0)
-            {
-                books = books.Where(e => e.ContentId == Content).ToList();
+            if (Genre != 0) {
+                books = books.Where(e => e.GenreId == Genre).ToList();
             }
             if (Style != 0)
             {
                 books = books.Where(e => e.StyleId == Style).ToList();
             }
+            books = books.OrderBy(e => e.Name).ToList();
 
             int pageSize = 10;
             var count = books.Count();
@@ -43,6 +39,9 @@ namespace CourseWork.Controllers
             PageViewModel pageViewModel = new PageViewModel(count, page, pageSize);
             BookListViewModel viewModel = new BookListViewModel(items, pageViewModel);
 
+            ViewData["Genre"] = new SelectList(_context.Set<Genre>(), "Id", "Name");
+            ViewData["Form"] = new SelectList(_context.Set<Form>(), "Id", "Name");
+            ViewData["Style"] = new SelectList(_context.Set<Style>(), "Id", "Name");
             return View(viewModel);
         }
 
@@ -88,11 +87,11 @@ namespace CourseWork.Controllers
         [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
-            ViewData["AuthorId"] = new SelectList(_context.Authors, "Id", "Name");
-            ViewData["ContentId"] = new SelectList(_context.Set<Content>(), "Id", "Name");
+            ViewData["AuthorId"] = new SelectList(_context.Authors.OrderBy(e => e.Name), "Id", "Name");
+            ViewData["GenreId"] = new SelectList(_context.Set<Genre>(), "Id", "Name");
             ViewData["FormId"] = new SelectList(_context.Set<Form>(), "Id", "Name");
-            ViewData["GenusId"] = new SelectList(_context.Set<Genus>(), "Id", "Name");
             ViewData["StyleId"] = new SelectList(_context.Set<Style>(), "Id", "Name");
+            ViewData["PublisherId"] = new SelectList(_context.Set<Publisher>(), "Id", "Name");
             return View();
         }
 
@@ -102,7 +101,7 @@ namespace CourseWork.Controllers
         [HttpPost]
         [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
-        public IActionResult Create([Bind("Id,Name,ImageSource,AuthorId,Description,Quantity,FormId,GenusId,ContentId,StyleId")] Book book)
+        public IActionResult Create(Book book)
         {
             _context.Add(book);
             _context.SaveChanges();
@@ -124,11 +123,11 @@ namespace CourseWork.Controllers
                 return NotFound();
             }
 
-            ViewData["Author"] = new SelectList(_context.Authors, "Id", "Name");
-            ViewData["Content"] = new SelectList(_context.Set<Content>(), "Id", "Name");
+            ViewData["Author"] = new SelectList(_context.Authors.OrderBy(e => e.Name), "Id", "Name");
+            ViewData["Genre"] = new SelectList(_context.Set<Genre>(), "Id", "Name");
             ViewData["Form"] = new SelectList(_context.Set<Form>(), "Id", "Name");
-            ViewData["Genus"] = new SelectList(_context.Set<Genus>(), "Id", "Name");
             ViewData["Style"] = new SelectList(_context.Set<Style>(), "Id", "Name");
+            ViewData["Publisher"] = new SelectList(_context.Set<Publisher>(), "Id", "Name");
             return View(book);
         }
 
@@ -138,7 +137,7 @@ namespace CourseWork.Controllers
         [HttpPost]
         [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(int id, [Bind("Id,Name,ImageSource,AuthorId,Description,Quantity,FormId,GenusId,ContentId,StyleId")] Book book)
+        public IActionResult Edit(int id, Book book)
         {
             if (id != book.Id)
             {
@@ -175,9 +174,8 @@ namespace CourseWork.Controllers
 
             var book = _context.Books
                 .Include(b => b.Author)
-                .Include(b => b.Content)
+                .Include(b => b.Genre)
                 .Include(b => b.Form)
-                .Include(b => b.Genus)
                 .Include(b => b.Style)
                 .FirstOrDefault(m => m.Id == id);
             if (book == null)

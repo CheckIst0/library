@@ -97,6 +97,7 @@ namespace CourseWork.Controllers
                     RoleId = 1
                 };
                 _context.Users.Add(user);
+                await _context.SaveChangesAsync();
                 var claims = new List<Claim> {
                     new Claim(ClaimTypes.Email, user.Email),
                     new Claim("userId", user.Id.ToString()),
@@ -109,7 +110,7 @@ namespace CourseWork.Controllers
                     EntryDate = DateTime.Now
                 };
                 _context.EntryHistories.Add(entry);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
 
                 ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,

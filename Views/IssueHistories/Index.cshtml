@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<CourseWork.Models.IssueHistory>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "История выдачи книг";
 }
 
-<h1>Index</h1>
-
+<input class="mb-3 form-control bs-primary-border-subtle" type="text" name="search" id="searchInput"
+            placeholder="Поиск...">
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn btn-success" asp-action="Create">Добавить запись</a>
 </p>
 <table class="table">
     <thead>
@@ -30,30 +30,44 @@
             <th></th>
         </tr>
     </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Book.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.User.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IssueDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EstimatedReturnDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FactReturnDate)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+    <tbody id="records" class="text-center">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Book.Name
+                </td>
+                <td>
+                    @item.User.Lastname @item.User.Name @item.User.Patronymic
+                </td>
+                <td>
+                    @item.IssueDate.ToString("d")
+                </td>
+                <td>
+                    @item.EstimatedReturnDate.ToString("d")
+                </td>
+                <td>
+                    @if (item.FactReturnDate != null) {
+                        @item.FactReturnDate?.ToString("d");
+                    } else {
+                        <p>Не возвращена</p>
+                    }
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">Детали</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+<script>
+    $(document).ready(function () {
+        $("#searchInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#records tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+            });
+        });
+    });
+</script>

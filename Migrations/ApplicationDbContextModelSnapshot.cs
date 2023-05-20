@@ -43,6 +43,35 @@ namespace CourseWork.Migrations
                     b.ToTable("Authors");
                 });
 
+            modelBuilder.Entity("CourseWork.Models.Award", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AuthorId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("ReceiptDate")
+                        .HasColumnType("Date");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AuthorId");
+
+                    b.ToTable("Awards");
+                });
+
             modelBuilder.Entity("CourseWork.Models.Book", b =>
                 {
                     b.Property<int>("Id")
@@ -54,9 +83,6 @@ namespace CourseWork.Migrations
                     b.Property<int>("AuthorId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ContentId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -64,7 +90,7 @@ namespace CourseWork.Migrations
                     b.Property<int>("FormId")
                         .HasColumnType("int");
 
-                    b.Property<int>("GenusId")
+                    b.Property<int>("GenreId")
                         .HasColumnType("int");
 
                     b.Property<string>("ImageSource")
@@ -74,6 +100,9 @@ namespace CourseWork.Migrations
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PublisherId")
+                        .HasColumnType("int");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
@@ -85,11 +114,11 @@ namespace CourseWork.Migrations
 
                     b.HasIndex("AuthorId");
 
-                    b.HasIndex("ContentId");
-
                     b.HasIndex("FormId");
 
-                    b.HasIndex("GenusId");
+                    b.HasIndex("GenreId");
+
+                    b.HasIndex("PublisherId");
 
                     b.HasIndex("StyleId");
 
@@ -98,27 +127,6 @@ namespace CourseWork.Migrations
                             t.HasCheckConstraint("Quantity", "Quantity > 0")
                                 .HasName("CK_Book_Quantity");
                         });
-                });
-
-            modelBuilder.Entity("CourseWork.Models.Content", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Content");
                 });
 
             modelBuilder.Entity("CourseWork.Models.EntryHistory", b =>
@@ -149,10 +157,6 @@ namespace CourseWork.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -162,7 +166,7 @@ namespace CourseWork.Migrations
                     b.ToTable("Form");
                 });
 
-            modelBuilder.Entity("CourseWork.Models.Genus", b =>
+            modelBuilder.Entity("CourseWork.Models.Genre", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -170,17 +174,13 @@ namespace CourseWork.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Genus");
+                    b.ToTable("Genre");
                 });
 
             modelBuilder.Entity("CourseWork.Models.IssueHistory", b =>
@@ -213,6 +213,53 @@ namespace CourseWork.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("IssueHistories");
+                });
+
+            modelBuilder.Entity("CourseWork.Models.Publisher", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Publisher");
+                });
+
+            modelBuilder.Entity("CourseWork.Models.Quote", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("BookId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Text")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BookId");
+
+                    b.ToTable("Quotes");
                 });
 
             modelBuilder.Entity("CourseWork.Models.Review", b =>
@@ -256,10 +303,6 @@ namespace CourseWork.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -343,12 +386,23 @@ namespace CourseWork.Migrations
 
                     b.ToTable("Users", t =>
                         {
-                            t.HasCheckConstraint("Age", "Age > 0 AND Age < 120")
+                            t.HasCheckConstraint("Age", "Age > 14 AND Age < 120")
                                 .HasName("CK_User_Age");
 
                             t.HasCheckConstraint("Gender", "Gender = 'M' OR Gender = 'F'")
                                 .HasName("CK_User_Gender");
                         });
+                });
+
+            modelBuilder.Entity("CourseWork.Models.Award", b =>
+                {
+                    b.HasOne("CourseWork.Models.Author", "Author")
+                        .WithMany("Awards")
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Author");
                 });
 
             modelBuilder.Entity("CourseWork.Models.Book", b =>
@@ -359,21 +413,21 @@ namespace CourseWork.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CourseWork.Models.Content", "Content")
-                        .WithMany()
-                        .HasForeignKey("ContentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("CourseWork.Models.Form", "Form")
                         .WithMany()
                         .HasForeignKey("FormId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CourseWork.Models.Genus", "Genus")
+                    b.HasOne("CourseWork.Models.Genre", "Genre")
                         .WithMany()
-                        .HasForeignKey("GenusId")
+                        .HasForeignKey("GenreId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CourseWork.Models.Publisher", "Publisher")
+                        .WithMany("Books")
+                        .HasForeignKey("PublisherId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -385,11 +439,11 @@ namespace CourseWork.Migrations
 
                     b.Navigation("Author");
 
-                    b.Navigation("Content");
-
                     b.Navigation("Form");
 
-                    b.Navigation("Genus");
+                    b.Navigation("Genre");
+
+                    b.Navigation("Publisher");
 
                     b.Navigation("Style");
                 });
@@ -411,6 +465,17 @@ namespace CourseWork.Migrations
                     b.Navigation("Book");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("CourseWork.Models.Quote", b =>
+                {
+                    b.HasOne("CourseWork.Models.Book", "Book")
+                        .WithMany("Quotes")
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Book");
                 });
 
             modelBuilder.Entity("CourseWork.Models.Review", b =>
@@ -444,6 +509,18 @@ namespace CourseWork.Migrations
                 });
 
             modelBuilder.Entity("CourseWork.Models.Author", b =>
+                {
+                    b.Navigation("Awards");
+
+                    b.Navigation("Books");
+                });
+
+            modelBuilder.Entity("CourseWork.Models.Book", b =>
+                {
+                    b.Navigation("Quotes");
+                });
+
+            modelBuilder.Entity("CourseWork.Models.Publisher", b =>
                 {
                     b.Navigation("Books");
                 });

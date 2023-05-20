@@ -3,44 +3,24 @@
 @{
     ViewData["Title"] = "Книги";
 }
-@* text-wrap *@
 <div class="text-break w-auto" id="books">
     <form method="get">
         <div class="row g-2">
             <div class="col-auto">
-                <select class="form-select" id="selectGrid" name="Form">
+                <select class="form-select" id="selectGrid" name="Form" asp-items="ViewBag.Form">
                     <option>Форма...</option>
-                    <option value="1">Поэзия</option>
-                    <option value="2">Проза</option>
                 </select>
                 <label for="selectGrid"></label>
             </div>
             <div class="col-auto">
-                <select class="form-select" id="selectGrid" name="Genus">
-                    <option>Род...</option>
-                    <option value="1">Эпос</option>
-                    <option value="2">Лирика</option>
-                    <option value="3">Драма</option>
+                <select class="form-select" id="selectGrid" name="Genre" asp-items="ViewBag.Genre">
+                    <option >Жанр...</option>
                 </select>
                 <label for="selectGrid"></label>
             </div>
             <div class="col-auto">
-                <select class="form-select" id="selectGrid" name="Content">
-                    <option>Содержание...</option>
-                    <option value="1">Комедия</option>
-                    <option value="2">Трагедия</option>
-                    <option value="3">Драма</option>
-                </select>
-                <label for="selectGrid"></label>
-            </div>
-            <div class="col-auto">
-                <select class="form-select" id="selectGrid" name="Style">
+                <select class="form-select" id="selectGrid" name="Style" asp-items="ViewBag.Style">
                     <option>Направление...</option>
-                    <option value="1">Классицизм</option>
-                    <option value="2">Сентиментализм</option>
-                    <option value="3">Романтизм</option>
-                    <option value="4">Реализм</option>
-                    <option value="5">Модернизм</option>
                 </select>
                 <label for="selectGrid"></label>
             </div>
@@ -57,7 +37,6 @@
         @if (User.IsInRole("Admin"))
         {
             <div class="col-3">
-                @* <a class="btn btn-success" href="~/Home/AddBook/">Добавить книгу</a> *@
                 <a class="btn btn-success" asp-action="Create">Добавить книгу</a>
             </div>
         }
@@ -73,22 +52,12 @@
                 </div>
                 <div class="col-md mx-2">
                     <div class="card-body-10">
-                        @* <h5 class="card-title">@item.Name</h5> *@
                         <a class="h5 card-title" asp-action="Details" asp-route-id="@item.Id">@item.Name</a>
                         <h6 class="card-subtitle">@item.Author.Name</h6>
                         <p class="card-text"><small class="text-body-secondary">
                                 <span class="d-inline-block">@item.Description</span></small></p>
                     </div>
                 </div>
-                @if (User.IsInRole("Admin"))
-                {
-                    <div class="col-md-1">
-                        <a class="mt-4 btn btn-success" asp-controller="Books" asp-action="Edit"
-                            asp-route-id="@item.Id">Изменить</a>
-                        <br>
-                        <a class="mt-2 btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
-                    </div>
-                }
             </div>
         </div>
     }

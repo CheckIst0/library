@@ -6,6 +6,6 @@ namespace CourseWork.Models
     {
         public int Id { get; set; }
         public string Email { get; set; }
-        public DateTime EntryDate {get;set;}
+        public DateTime EntryDate { get; set; }
     }
 }

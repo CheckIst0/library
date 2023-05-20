@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using CourseWork;
 using CourseWork.Models;
 using Microsoft.AspNetCore.Authorization;
 
@@ -51,8 +46,8 @@ namespace CourseWork.Controllers
         // GET: IssueHistories/Create
         public IActionResult Create()
         {
-            ViewData["BookId"] = new SelectList(_context.Books, "Id", "Id");
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id");
+            ViewData["BookId"] = new SelectList(_context.Books, "Id", "Name");
+            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Email");
             return View();
         }
 
@@ -61,16 +56,19 @@ namespace CourseWork.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,BookId,UserId,IssueDate,EstimatedReturnDate,FactReturnDate")] IssueHistory issueHistory)
+        public async Task<IActionResult> Create(IssueHistory issueHistory)
         {
-            if (ModelState.IsValid)
+            issueHistory.IssueDate = DateTime.Today;
+            issueHistory.EstimatedReturnDate = issueHistory.IssueDate.AddDays(14);
+            if (issueHistory.BookId != 0 && issueHistory.UserId != 0)
             {
                 _context.Add(issueHistory);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
+
             }
-            ViewData["BookId"] = new SelectList(_context.Books, "Id", "Id", issueHistory.BookId);
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", issueHistory.UserId);
+            ViewData["BookId"] = new SelectList(_context.Books, "Id", "Name", issueHistory.BookId);
+            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Email", issueHistory.UserId);
             return View(issueHistory);
         }
 
@@ -87,8 +85,8 @@ namespace CourseWork.Controllers
             {
                 return NotFound();
             }
-            ViewData["BookId"] = new SelectList(_context.Books, "Id", "Id", issueHistory.BookId);
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", issueHistory.UserId);
+            ViewData["BookId"] = new SelectList(_context.Books, "Id", "Name", issueHistory.BookId);
+            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Email", issueHistory.UserId);
             return View(issueHistory);
         }
 
@@ -97,14 +95,15 @@ namespace CourseWork.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,BookId,UserId,IssueDate,EstimatedReturnDate,FactReturnDate")] IssueHistory issueHistory)
+        public async Task<IActionResult> Edit(int id, IssueHistory issueHistory)
         {
             if (id != issueHistory.Id)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (issueHistory.BookId != 0 && issueHistory.UserId != 0 &&
+            issueHistory.IssueDate < issueHistory.EstimatedReturnDate && (issueHistory.IssueDate < issueHistory.FactReturnDate || issueHistory.FactReturnDate == null))
             {
                 try
                 {
@@ -124,8 +123,8 @@ namespace CourseWork.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["BookId"] = new SelectList(_context.Books, "Id", "Id", issueHistory.BookId);
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", issueHistory.UserId);
+            ViewData["BookId"] = new SelectList(_context.Books, "Id", "Name", issueHistory.BookId);
+            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Email", issueHistory.UserId);
             return View(issueHistory);
         }
 
@@ -163,14 +162,14 @@ namespace CourseWork.Controllers
             {
                 _context.IssueHistories.Remove(issueHistory);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool IssueHistoryExists(int id)
         {
-          return (_context.IssueHistories?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.IssueHistories?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

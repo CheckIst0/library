@@ -29,16 +29,16 @@
                 <img src="~/images/logo.jpg" alt="logo" width="210" height="210">
                 <div class="row g-2">
                     <div class="form-floating mb-3 col-md">
-                        <input asp-for="Email" type="text" class="form-control" id="floatingInputGrid"
+                        <input asp-for="Email" type="email" class="form-control" id="floatingInputGrid"
                             placeholder="name@example.com" />
                         <label asp-for="Email" for="floatingInputGrid">E-mail</label>
-                        <span asp-validation-for="Email" class="form-text" style="color: crimson;"></span>
+                        <span asp-validation-for="Email" class="text-danger"></span>
                     </div>
                     <div class="form-floating mb-3 col-md">
                         <input asp-for="Password" type="password" class="form-control" id="floatingPasswordGrid"
                             placeholder="Password">
                         <label asp-for="Password" for="floatingPasswordGrid">Пароль</label>
-                        <span asp-validation-for="Password" class="form-text" style="color: crimson;"></span>
+                        <span asp-validation-for="Password" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="row g-2">
@@ -46,19 +46,19 @@
                         <input asp-for="Name" type="text" class="form-control" id="floatingInputGrid"
                             placeholder="Name">
                         <label asp-for="Name" for="floatingInputGrid">Имя</label>
-                        <span asp-validation-for="Name" class="form-text" style="color: crimson;"></span>
+                        <span asp-validation-for="Name" class="text-danger"></span>
                     </div>
                     <div class="form-floating mb-3 col-md">
                         <input asp-for="Lastname" type="text" class="form-control" id="floatingInputGrid"
                             placeholder="Name">
                         <label asp-for="Lastname" for="floatingInputGrid">Фамилия</label>
-                        <span asp-validation-for="Lastname" class="form-text" style="color: crimson;"></span>
+                        <span asp-validation-for="Lastname" class="text-danger"></span>
                     </div>
                     <div class="form-floating mb-3 col-md">
                         <input asp-for="Patronymic" type="text" class="form-control" id="floatingInputGrid"
                             placeholder="Name">
                         <label asp-for="Patronymic" for="floatingInputGrid">Отчество</label>
-                        <span asp-validation-for="Patronymic" class="form-text" style="color: crimson;"></span>
+                        <span asp-validation-for="Patronymic" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="row g-2">
@@ -69,25 +69,25 @@
                             <option value="F">Женский</option>
                         </select>
                         <label asp-for="Gender" for="floatingSelectGrid">Пол</label>
-                        <span asp-validation-for="Address" class="form-text" style="color: crimson;"></span>
+                        <span asp-validation-for="Address" class="text-danger"></span>
                     </div>
                     <div class="form-floating mb-3 col-md">
                         <input asp-for="Address" type="text" class="form-control" id="floatingInputGrid"
                             placeholder="Name">
                         <label asp-for="Address" for="floatingInputGrid">Адрес</label>
-                        <span asp-validation-for="Address" class="form-text" style="color: crimson;"></span>
+                        <span asp-validation-for="Address" class="text-danger"></span>
                     </div>
                     <div class="form-floating mb-3 col-md">
                         <input asp-for="Age" type="number" class="form-control" id="floatingInputGrid"
                             placeholder="Name">
                         <label asp-for="Age" for="floatingInputGrid">Возраст</label>
-                        <span asp-validation-for="Age" class="form-text" style="color: crimson;"></span>
+                        <span asp-validation-for="Age" class="text-danger"></span>
                     </div>
                     <div class="form-floating mb-3 col-md">
                         <input asp-for="Phone" type="tel" class="form-control" id="floatingInputGrid"
                             placeholder="Name">
                         <label asp-for="Phone" for="floatingInputGrid">Номер телефона</label>
-                        <span asp-validation-for="Phone" class="form-text" style="color: crimson;"></span>
+                        <span asp-validation-for="Phone" class="text-danger"></span>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Регистрация</button>

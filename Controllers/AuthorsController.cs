@@ -18,7 +18,7 @@ namespace CourseWork.Controllers
         public async Task<IActionResult> Index()
         {
             return _context.Authors != null ?
-                        View(await _context.Authors.ToListAsync()) :
+                        View(await _context.Authors.OrderBy(e => e.Name).ToListAsync()) :
                         Problem("Entity set 'ApplicationDbContext.Authors'  is null.");
         }
 
@@ -53,7 +53,7 @@ namespace CourseWork.Controllers
         [HttpPost]
         [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name")] Author author)
+        public async Task<IActionResult> Create(Author author)
         {
             _context.Add(author);
             await _context.SaveChangesAsync();
@@ -83,7 +83,7 @@ namespace CourseWork.Controllers
         [HttpPost]
         [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] Author author)
+        public async Task<IActionResult> Edit(int id, Author author)
         {
             if (id != author.Id)
             {
