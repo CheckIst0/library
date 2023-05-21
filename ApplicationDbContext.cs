@@ -39,7 +39,7 @@ namespace CourseWork
                 .HasName("CK_Review_Rating"));
 
             modelBuilder.Entity<Book>()
-                .ToTable(t => t.HasCheckConstraint("Quantity", "Quantity > 0")
+                .ToTable(t => t.HasCheckConstraint("Quantity", "Quantity >= 0")
                 .HasName("CK_Book_Quantity"));
         }
 
@@ -51,5 +51,6 @@ namespace CourseWork
         public DbSet<EntryHistory> EntryHistories { get; set; }
         public DbSet<Award> Awards { get; set; }
         public DbSet<Quote> Quotes { get; set; }
+        public DbSet<CourseWork.Models.Publisher>? Publisher { get; set; }
     }
 }

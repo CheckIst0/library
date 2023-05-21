@@ -8,10 +8,12 @@
     <div class="form-floating mb-3">
         <select asp-for="BookId" id="floatingSelect" class="form-select" asp-items="ViewBag.BookId"></select>
         <label asp-for="BookId" for="floatingSelect"></label>
+        <span asp-validation-for="BookId" class="text-danger"></span>
     </div>
     <div class="form-floating mb-3">
         <select asp-for="UserId" id="floatingSelect" class="form-select" asp-items="ViewBag.UserId"></select>
         <label asp-for="UserId" for="floatingSelect"></label>
+        <span asp-validation-for="UserId" class="text-danger"></span>
     </div>
     <div class="form-group">
         <input type="submit" value="Добавить" class="btn btn-success" />

@@ -124,7 +124,7 @@ namespace CourseWork.Migrations
 
                     b.ToTable("Books", t =>
                         {
-                            t.HasCheckConstraint("Quantity", "Quantity > 0")
+                            t.HasCheckConstraint("Quantity", "Quantity >= 0")
                                 .HasName("CK_Book_Quantity");
                         });
                 });

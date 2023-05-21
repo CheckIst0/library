@@ -54,7 +54,7 @@
                                     <span class="d-inline-block">Фактическая дата возвращения: @item.FactReturnDate.ToString().Substring(0, 10)</span>
                                 }
                                 </small></p>
-                        <a href="~/Home/Book/@item.Id" class="stretched-link card-link"></a>
+                        <a asp-controller="Books" asp-action="Details" asp-route-id="@item.BookId" class="stretched-link card-link"></a>
                     </div>
                 </div>
             </div>

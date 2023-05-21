@@ -1,0 +1,38 @@
+﻿@model CourseWork.Models.Award
+
+@{
+    ViewData["Title"] = "Добавление";
+}
+<form asp-action="Create">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-floating mb-3">
+        <input asp-for="Name" class="form-control" id="floatingInput" placeholder="name"/>
+        <label asp-for="Name" for="floatingInput"></label>
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-floating mb-3">
+        <textarea asp-for="Description" style="height: 100px;" class="form-control" id="floatingTextarea" placeholder="asdf"></textarea>
+        <label asp-for="Description" for="floatingTextarea"></label>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-floating mb-3">
+        <select asp-for="AuthorId" class="form-select" id="floatingSelect" asp-items="ViewBag.AuthorId"></select>
+        <label asp-for="AuthorId" for="floatingSelect"></label>
+        <span asp-validation-for="AuthorId" class="text-danger"></span>
+    </div>
+    <div class="form-floating mb-3">
+        <input asp-for="ReceiptDate" type="date" class="form-control" id="floatingInput" placeholder="adf"/>
+        <label asp-for="ReceiptDate" for="floatingInput"></label>
+        <span asp-validation-for="ReceiptDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Добавить" class="btn btn-success" />
+        <a class="btn btn-primary" asp-action="Index">К списку</a>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

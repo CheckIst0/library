@@ -47,24 +47,28 @@
 {
     <div class="mb-5">
         <h4 class="text-center">Награды</h4>
-        @if (User.IsInRole("Admin")) {
-            <a href="#" class="btn btn-success mb-3">Добавить</a>
+        @if (User.IsInRole("Admin"))
+        {
+            <a asp-controller="Awards" asp-action="Create" class="btn btn-success mb-3">Добавить</a>
         }
         @foreach (var item in @Model.Awards)
         {
             <div class="card mb-3">
                 <h5 class="card-header">@item.Name</h5>
                 <div class="card-body">
-                    <p class="card-text">@item.Description</p>
-                    @if (User.IsInRole("Admin"))
+                    @foreach (var str in item.Description.Split("\r\n"))
                     {
-                        <a href="#" class="btn btn-success">Изменить</a>
-                        <a href="#" class="btn btn-danger">Удалить</a>
+                        <p class="card-text">@str</p>
                     }
+                    <p class="card-text text-body-secondary">@item.ReceiptDate.ToString("d")</p>
                 </div>
-                <div class="card-footer text-body-secondary">
-                    @item.ReceiptDate.ToString("d")
-                </div>
+                @if (User.IsInRole("Admin"))
+                {
+                    <div class="card-footer">
+                        <a asp-controller="Awards" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success">Изменить</a>
+                        <a asp-controller="Awards" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Удалить</a>
+                    </div>
+                }
             </div>
         }
     </div>

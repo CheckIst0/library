@@ -138,6 +138,11 @@ namespace CourseWork.Migrations
                 table: "Users",
                 sql: "Age > 14 AND Age < 120");
 
+            migrationBuilder.AddCheckConstraint(
+                name: "CK_Book_Quantity",
+                table: "Books",
+                sql: "Quantity >= 0");
+
             migrationBuilder.CreateIndex(
                 name: "IX_Awards_AuthorId",
                 table: "Awards",
@@ -191,6 +196,10 @@ namespace CourseWork.Migrations
             migrationBuilder.DropCheckConstraint(
                 name: "CK_User_Age",
                 table: "Users");
+
+            migrationBuilder.DropCheckConstraint(
+                name: "CK_Book_Quantity",
+                table: "Books");
 
             migrationBuilder.DropColumn(
                 name: "Description",

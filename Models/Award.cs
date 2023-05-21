@@ -10,8 +10,10 @@ namespace CourseWork.Models
         public string Name { get; set; }
         [Display(Name = "Описание")]
         public string Description { get; set; }
+        [Display(Name = "Автор")]
         public int AuthorId { get; set; }
         [ForeignKey("AuthorId")]
+        [Display(Name = "Автор")]
         public Author Author { get; set; }
 
         [Column(TypeName = "Date")]

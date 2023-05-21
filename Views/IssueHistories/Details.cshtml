@@ -36,14 +36,29 @@
             @if (Model.FactReturnDate != null)
             {
                 @Model.FactReturnDate?.ToString("d")
-            } else {
+            }
+            else
+            {
                 <div>Не возвращена</div>
             }
         </dd>
     </dl>
 </div>
-<div>
-    <a class="btn btn-success me-2" asp-action="Edit" asp-route-id="@Model?.Id">Редактировать</a>
-    <a class="btn btn-danger me-2" asp-action="Delete" asp-route-id="@Model?.Id">Удалить</a>
-    <a class="btn btn-primary me-2" asp-action="Index">К списку</a>
+<div class="row">
+    @* <a class="btn btn-success me-2" asp-action="Edit" asp-route-id="@Model?.Id">Редактировать</a> *@
+    @if (Model.FactReturnDate == null)
+    {
+        <div class="col-auto">
+            <form asp-action="Details">
+                <input type="hidden" asp-for="FactReturnDate" value="@DateTime.Today">
+                <input type="submit" value="Возвращена" class="btn btn-success">
+            </form>
+        </div>
+    }
+    <div class="col-auto">
+        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@Model?.Id">Удалить</a>
+    </div>
+    <div class="col-auto">
+        <a class="btn btn-primary" asp-action="Index">К списку</a>
+    </div>
 </div>
