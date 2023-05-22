@@ -24,6 +24,7 @@
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                     <li><a asp-controller="Books" asp-action="Index" class="nav-link px-2 link-body-emphasis">Книги</a></li>
                     <li><a asp-controller="Authors" asp-action="Index" class="nav-link px-2 link-body-emphasis">Авторы</a></li>
+                    <li><a asp-controller="Publishers" asp-action="Index" class="nav-link px-2 link-body-emphasis">Издательства</a></li>
                     @if (User.IsInRole("Admin")) {
                         <li><a asp-controller="IssueHistories" asp-action="Index" class="nav-link px-2 link-body-emphasis">История выдачи книг</a></li>
                     }

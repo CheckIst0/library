@@ -19,36 +19,10 @@ namespace CourseWork.Controllers
             _context = context;
         }
 
-        // GET: Quotes
-        public async Task<IActionResult> Index()
-        {
-            var applicationDbContext = _context.Quotes.Include(q => q.Book);
-            return View(await applicationDbContext.ToListAsync());
-        }
-
-        // GET: Quotes/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.Quotes == null)
-            {
-                return NotFound();
-            }
-
-            var quote = await _context.Quotes
-                .Include(q => q.Book)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (quote == null)
-            {
-                return NotFound();
-            }
-
-            return View(quote);
-        }
-
         // GET: Quotes/Create
         public IActionResult Create()
         {
-            ViewData["BookId"] = new SelectList(_context.Books, "Id", "Id");
+            ViewData["BookId"] = new SelectList(_context.Books, "Id", "Name");
             return View();
         }
 
@@ -59,13 +33,15 @@ namespace CourseWork.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Quote quote)
         {
-            if (ModelState.IsValid)
+            if (quote.Text.Length > 0)
             {
                 _context.Add(quote);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return Redirect("~/Books/Details/" + quote.BookId);
+            } else {
+                ModelState.AddModelError("Text", "Введите текст цитаты");
             }
-            ViewData["BookId"] = new SelectList(_context.Books, "Id", "Id", quote.BookId);
+            ViewData["BookId"] = new SelectList(_context.Books, "Id", "Name", quote.BookId);
             return View(quote);
         }
 
@@ -82,7 +58,6 @@ namespace CourseWork.Controllers
             {
                 return NotFound();
             }
-            ViewData["BookId"] = new SelectList(_context.Books, "Id", "Id", quote.BookId);
             return View(quote);
         }
 
@@ -98,7 +73,7 @@ namespace CourseWork.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (quote.Text.Length > 0)
             {
                 try
                 {
@@ -116,9 +91,10 @@ namespace CourseWork.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return Redirect("~/Books/Details/" + quote.BookId);
+            } else {
+                ModelState.AddModelError("Text", "Введите текст цитаты");
             }
-            ViewData["BookId"] = new SelectList(_context.Books, "Id", "Id", quote.BookId);
             return View(quote);
         }
 
@@ -157,7 +133,7 @@ namespace CourseWork.Controllers
             }
             
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return Redirect("~/Books/Details/" + quote?.BookId);
         }
 
         private bool QuoteExists(int id)

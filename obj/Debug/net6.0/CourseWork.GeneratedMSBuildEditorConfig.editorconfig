@@ -9,169 +9,153 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = CourseWork
 build_property.RootNamespace = CourseWork
-build_property.ProjectDir = C:\Users\Чингиз\Desktop\Учеба\Инструментальные средства информационных систем\Курсовая\CourseWork\
+build_property.ProjectDir = c:\Users\Чингиз\Desktop\Учеба\Инструментальные средства информационных систем\Курсовая\CourseWork\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Чингиз\Desktop\Учеба\Инструментальные средства информационных систем\Курсовая\CourseWork
+build_property.MSBuildProjectDirectory = c:\Users\Чингиз\Desktop\Учеба\Инструментальные средства информационных систем\Курсовая\CourseWork
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Authors/Create.cshtml]
+[c:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Authors/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Authors/Delete.cshtml]
+[c:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Authors/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Authors/Details.cshtml]
+[c:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Authors/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Authors/Edit.cshtml]
+[c:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Authors/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Authors/Index.cshtml]
+[c:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Authors/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Awards/Create.cshtml]
+[c:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Awards/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXdhcmRzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Awards/Delete.cshtml]
+[c:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Awards/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXdhcmRzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Awards/Edit.cshtml]
+[c:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Awards/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXdhcmRzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Books/Create.cshtml]
+[c:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Books/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va3NcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Books/Delete.cshtml]
+[c:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Books/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va3NcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Books/Details.cshtml]
+[c:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Books/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va3NcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Books/Edit.cshtml]
+[c:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Books/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va3NcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Books/Index.cshtml]
+[c:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Books/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/IssueHistories/Create.cshtml]
+[c:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/IssueHistories/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXNzdWVIaXN0b3JpZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/IssueHistories/Delete.cshtml]
+[c:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/IssueHistories/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXNzdWVIaXN0b3JpZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/IssueHistories/Details.cshtml]
+[c:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/IssueHistories/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXNzdWVIaXN0b3JpZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/IssueHistories/Edit.cshtml]
+[c:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/IssueHistories/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXNzdWVIaXN0b3JpZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/IssueHistories/Index.cshtml]
+[c:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/IssueHistories/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXNzdWVIaXN0b3JpZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Publishers/Create.cshtml]
+[c:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Publishers/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHVibGlzaGVyc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Publishers/Delete.cshtml]
+[c:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Publishers/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHVibGlzaGVyc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Publishers/Details.cshtml]
+[c:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Publishers/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHVibGlzaGVyc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Publishers/Edit.cshtml]
+[c:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Publishers/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHVibGlzaGVyc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Publishers/Index.cshtml]
+[c:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Publishers/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHVibGlzaGVyc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Quotes/Create.cshtml]
+[c:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Quotes/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVvdGVzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Quotes/Delete.cshtml]
+[c:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Quotes/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVvdGVzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Quotes/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVvdGVzXERldGFpbHMuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Quotes/Edit.cshtml]
+[c:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Quotes/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVvdGVzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Quotes/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVvdGVzXEluZGV4LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Shared/Error.cshtml]
+[c:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Shared/_ValidationScriptsPartial.cshtml]
+[c:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/User/AccessDenied.cshtml]
+[c:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/User/AccessDenied.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxBY2Nlc3NEZW5pZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/User/Account.cshtml]
+[c:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/User/Account.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxBY2NvdW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/User/Entries.cshtml]
+[c:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/User/Entries.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxFbnRyaWVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/User/Login.cshtml]
+[c:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/User/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/User/Register.cshtml]
+[c:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/User/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/_ViewImports.cshtml]
+[c:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/_ViewStart.cshtml]
+[c:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Shared/_Layout.cshtml]
+[c:/Users/Чингиз/Desktop/Учеба/Инструментальные средства информационных систем/Курсовая/CourseWork/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-tyddf0lxbl

@@ -1,36 +1,44 @@
 ﻿@model CourseWork.Models.Publisher
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Издательство";
 }
 
-<h1>Details</h1>
+
+<h1>@Model.Name</h1>
+<h4>@Model.Address</h4>
+<p class="mb-3">@Model.Description</p>
 
 <div>
-    <h4>Publisher</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-    </dl>
+    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-success me-2">Изменить</a>
+    <a asp-action="Delete" asp-route-id="@Model?.Id" class="btn btn-danger me-2">Удалить</a>
+    <a asp-action="Index" class="btn btn-primary">К списку</a>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+<hr>
+@if (Model?.Books.Count() > 0)
+{
+    <div class="mb-5">
+        <h4 style="text-align: center;">Книги</h4>
+        @foreach (var item in Model.Books)
+        {
+            <div class="card mb-3 w-auto shadow" style="background-color: rgb(242, 250, 250);">
+                <div class="row g-0">
+                    <div class="col-md-1">
+                        <img src="~/images/@item.ImageSource" class="img-fluid rounded-start" alt="@item.Name" width="120"
+                            height="160">
+                    </div>
+                    <div class="col-md">
+                        <div class="card-body text-start">
+                            <h5 class="card-title">@item.Name</h5>
+                            <h6 class="card-subtitle">@item.Author.Name</h6>
+                            <p class="card-text text-break fs-6"><small class="text-body-secondary">
+                                    <span class="d-inline-block">@item.Description</span></small></p>
+                            <a asp-controller="Books" asp-action="Details" asp-route-id="@item.Id"
+                                class="stretched-link card-link"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

@@ -40,7 +40,7 @@
 <h4 style="text-align: center;">Цитаты из книги</h4>
 @if (User.IsInRole("Admin"))
 {
-    <a href="#" class="btn btn-success mb-3">Добавить</a>
+    <a asp-controller="Quotes" asp-action="Create" class="btn btn-success mb-3">Добавить</a>
 }
 <div class="mb-5">
     @foreach (var item in Model.Book.Quotes)
@@ -60,8 +60,8 @@
             @if (User.IsInRole("Admin"))
             {
                 <div class="card-footer text-body-secondary">
-                    <a href="#" class="btn btn-success">Изменить</a>
-                    <a href="#" class="btn btn-danger">Удалить</a>
+                    <a asp-controller="Quotes" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success">Изменить</a>
+                    <a asp-controller="Quotes" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Удалить</a>
                 </div>
             }
         </div>

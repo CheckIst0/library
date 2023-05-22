@@ -64,6 +64,7 @@ namespace CourseWork.Controllers
             try
             {
                 issueHistory.FactReturnDate = factReturnDate;
+                issueHistory.Book.Quantity++;
                 _context.Update(issueHistory);
                 await _context.SaveChangesAsync();
             }

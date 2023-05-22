@@ -36,12 +36,13 @@ namespace CourseWork.Controllers
             }
 
             var publisher = await _context.Publisher
+                .Include(e => e.Books)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (publisher == null)
             {
                 return NotFound();
             }
-
+            
             return View(publisher);
         }
 
@@ -58,7 +59,7 @@ namespace CourseWork.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Publisher publisher)
         {
-            if (ModelState.IsValid)
+            if (publisher.Description.Length > 0)
             {
                 _context.Add(publisher);
                 await _context.SaveChangesAsync();
@@ -95,7 +96,7 @@ namespace CourseWork.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (publisher.Description.Length > 0)
             {
                 try
                 {

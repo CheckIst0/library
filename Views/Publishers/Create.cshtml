@@ -1,43 +1,38 @@
 ﻿@model CourseWork.Models.Publisher
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Добавление";
 }
 
-<h1>Create</h1>
+<h1>Добавить</h1>
 
-<h4>Publisher</h4>
+<h4>Издательство</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Address" class="control-label"></label>
-                <input asp-for="Address" class="form-control" />
-                <span asp-validation-for="Address" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+<form asp-action="Create">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-floating mb-3">
+        <input asp-for="Name" class="form-control" id="floatingInput" placeholder="asdf"/>
+        <label asp-for="Name" for="floatingInput"></label>
+        <span asp-validation-for="Name" class="text-danger"></span>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+    <div class="form-floating mb-3">
+        <input asp-for="Description" class="form-control" id="floatingTextarea" placeholder="asdf" style="height: 100px;"/>
+        <label asp-for="Description" for="floatingTextarea"></label>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-floating mb-3">
+        <input asp-for="Address" class="form-control" id="floatingInput" placeholder="asdf"/>
+        <label asp-for="Address" for="floatingInput"></label>
+        <span asp-validation-for="Address" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Добавить" class="btn btn-success me-2" />
+        <a asp-action="Index" class="btn btn-primary">К списку</a>
+    </div>
+</form>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
