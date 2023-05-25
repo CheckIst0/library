@@ -4,8 +4,8 @@ namespace CourseWork.Models
 {
     public class LoginViewModel
     {
-        [Required (ErrorMessage = "Не указано адрес электронной почты")]
-        [EmailAddress]
+        [Required (ErrorMessage = "Не указан адрес электронной почты")]
+        [EmailAddress(ErrorMessage = "Некорректный адрес электронной почты")]
         public string? Email {get; set;}
         [Required (ErrorMessage = "Не указан пароль")]
         [DataType(DataType.Password)]

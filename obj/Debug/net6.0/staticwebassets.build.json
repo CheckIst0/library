@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "iMxevFGzo8CopMkmF1A99c0jRkY8VhtnOKKWqqwcnXk=",
+  "Hash": "DK7075vJkBzJ5y1T45k/A472/RKda+offFpRseWVejQ=",
   "Source": "CourseWork",
   "BasePath": "_content/CourseWork",
   "Mode": "Default",
@@ -219,6 +219,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\na_dne.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Чингиз\\Desktop\\Учеба\\Инструментальные средства информационных систем\\Курсовая\\CourseWork\\wwwroot\\images\\onegin.jpg",
+      "SourceId": "CourseWork",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Чингиз\\Desktop\\Учеба\\Инструментальные средства информационных систем\\Курсовая\\CourseWork\\wwwroot\\",
+      "BasePath": "_content/CourseWork",
+      "RelativePath": "images/onegin.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\onegin.jpg"
     },
     {
       "Identity": "C:\\Users\\Чингиз\\Desktop\\Учеба\\Инструментальные средства информационных систем\\Курсовая\\CourseWork\\wwwroot\\images\\zhizn_nenuzhnogo_cheloveka.jpg",
@@ -1222,6 +1239,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\Чингиз\\Desktop\\Учеба\\Инструментальные средства информационных систем\\Курсовая\\CourseWork\\wwwroot\\list.xlsx",
+      "SourceId": "CourseWork",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Чингиз\\Desktop\\Учеба\\Инструментальные средства информационных систем\\Курсовая\\CourseWork\\wwwroot\\",
+      "BasePath": "_content/CourseWork",
+      "RelativePath": "list.xlsx",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\list.xlsx"
     }
   ]
 }

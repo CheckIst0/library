@@ -12,7 +12,7 @@ namespace CourseWork.Models
         [Required(ErrorMessage = "Пожалуйста, введите пароль")]
         [StringLength(50, MinimumLength = 8, ErrorMessage = "Длина пароля должна быть от 8 до 50 символов")]
         [DataType(DataType.Password)]
-        [RegularExpression(@"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{9,}$",
+        [RegularExpression(@"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,50}$",
         ErrorMessage = "Пароль должен содержать символы латинского алфавита в верхнем и нижнем регистре и цифры, недопустимо вводить спецсимволы")]
         public string Password { get; set; }
         [Required(ErrorMessage = "Пожалуйста, введите имя")]

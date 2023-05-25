@@ -35,6 +35,19 @@ namespace CourseWork.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(string returnUrl, LoginViewModel login)
         {
+            // User logUser = _context.Users.FirstOrDefault(u => u.Email == login.Email);
+            // if (logUser != null)
+            // {
+            // EntryHistory entry = new EntryHistory
+            // {
+            //     Email = logUser.Email,
+            //     UserId = logUser.Id,
+            //     EntryDate = DateTime.Now
+            // };
+            // _context.EntryHistories.Add(entry);
+            // _context.SaveChanges();
+            // }
+
             User dbUser = _context.Users.FirstOrDefault(u => u.Email == login.Email && u.Password == login.Password);
 
             if (dbUser == null)
@@ -55,6 +68,7 @@ namespace CourseWork.Controllers
             EntryHistory entry = new EntryHistory
             {
                 Email = dbUser.Email,
+                UserId = dbUser.Id,
                 EntryDate = DateTime.Now
             };
             _context.EntryHistories.Add(entry);
@@ -94,10 +108,11 @@ namespace CourseWork.Controllers
                     Address = register.Address,
                     Age = register.Age,
                     Phone = register.Phone,
-                    RoleId = 1
+                    RoleId = 2
                 };
                 _context.Users.Add(user);
                 await _context.SaveChangesAsync();
+                user = _context.Users.First(e => e.Email == user.Email);
                 var claims = new List<Claim> {
                     new Claim(ClaimTypes.Email, user.Email),
                     new Claim("userId", user.Id.ToString()),
@@ -116,7 +131,7 @@ namespace CourseWork.Controllers
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
                     new ClaimsPrincipal(claimsIdentity));
 
-                return RedirectToAction("Books");
+                return Redirect("Books");
             }
 
             if (dbUser != null)
@@ -129,7 +144,7 @@ namespace CourseWork.Controllers
 
         public IActionResult Account(int page = 1)
         {
-            User user = _context.Users.Where(u => u.Id == int.Parse(User.FindFirstValue("userId"))).First();   
+            User user = _context.Users.Where(u => u.Id == int.Parse(User.FindFirstValue("userId"))).First();
             var issues = _context.IssueHistories.Where(e => e.UserId == user.Id).ToList();
 
             int pageSize = 10;
@@ -157,7 +172,8 @@ namespace CourseWork.Controllers
             return View(viewModel);
         }
 
-        public IActionResult AccessDenied() {
+        public IActionResult AccessDenied()
+        {
             return View();
         }
     }

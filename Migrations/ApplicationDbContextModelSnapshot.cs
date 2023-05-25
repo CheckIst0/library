@@ -144,7 +144,12 @@ namespace CourseWork.Migrations
                     b.Property<DateTime>("EntryDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("EntryHistories");
                 });
@@ -446,6 +451,17 @@ namespace CourseWork.Migrations
                     b.Navigation("Publisher");
 
                     b.Navigation("Style");
+                });
+
+            modelBuilder.Entity("CourseWork.Models.EntryHistory", b =>
+                {
+                    b.HasOne("CourseWork.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("CourseWork.Models.IssueHistory", b =>

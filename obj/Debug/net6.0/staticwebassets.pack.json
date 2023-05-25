@@ -45,6 +45,10 @@
       "PackagePath": "staticwebassets\\images\\na_dne.jpg"
     },
     {
+      "Id": "C:\\Users\\Чингиз\\Desktop\\Учеба\\Инструментальные средства информационных систем\\Курсовая\\CourseWork\\wwwroot\\images\\onegin.jpg",
+      "PackagePath": "staticwebassets\\images\\onegin.jpg"
+    },
+    {
       "Id": "C:\\Users\\Чингиз\\Desktop\\Учеба\\Инструментальные средства информационных систем\\Курсовая\\CourseWork\\wwwroot\\images\\zhizn_nenuzhnogo_cheloveka.jpg",
       "PackagePath": "staticwebassets\\images\\zhizn_nenuzhnogo_cheloveka.jpg"
     },
@@ -279,6 +283,10 @@
     {
       "Id": "C:\\Users\\Чингиз\\Desktop\\Учеба\\Инструментальные средства информационных систем\\Курсовая\\CourseWork\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Users\\Чингиз\\Desktop\\Учеба\\Инструментальные средства информационных систем\\Курсовая\\CourseWork\\wwwroot\\list.xlsx",
+      "PackagePath": "staticwebassets\\list.xlsx"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.CourseWork.Microsoft.AspNetCore.StaticWebAssets.props",
